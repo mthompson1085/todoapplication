@@ -1,23 +1,33 @@
-import React from 'react';
-import './App.css';
-import AddTodo from './components/addTodo'
-import TodoList from './components/todoList'
-import VisibilityFilter from './components/visibilityFilter'
-import {Provider} from 'react-redux'
-import store from './redux/store'
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Contact from './contact';
+import App from './cctodo'
 
 
-function App() {
-  return (
-    <Provider store={store}>
-    <div className="App">
-      <h1>Financial Aid To Do's!</h1>
-      <AddTodo/>
-      <TodoList todos={[{content: 'Gather Tax Information'}, {content: 'Apply for FSA ID'}]}/>
-      <VisibilityFilter/>
-    </div>
-    </Provider>
-  );
+
+
+class Nav extends Component {
+  render() {
+    return (
+    <Router>
+        <h1>Financial Aid To Do Application</h1>
+        <div>
+          <nav class="topnav">
+          <ul class="listnav">
+            <li><Link to={'/cctodo'} class="nav-link"> To Do List </Link></li>
+            <li><Link to={'/contact'} class="nav-link"> Contact </Link></li>
+          </ul>
+          </nav>
+          <hr />
+          <Switch>
+              <Route exact path='/cctodo' component={App} />
+              <Route path= '/contact' component={Contact} />
+          </Switch>
+          
+        </div>
+      </Router>
+    )
+  }
 }
+export default Nav;
 
-export default App;
