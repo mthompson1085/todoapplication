@@ -15,8 +15,11 @@ Javascript
 The changes that I will make in the future to improve the app are:
 
 1 Connect the forms to a hosted area to be able to receive the form submission
+
 2 Add more views to create a welcome page
+
 3 Add images to improve the look of the app
+
 
 Link to View demo online: https://5f565d15e700eea4665ea09c--gracious-shaw-aaaa0f.netlify.app/cctodo
 
