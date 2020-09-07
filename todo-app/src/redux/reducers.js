@@ -1,12 +1,16 @@
 import {FILTER_ALL} from './actionTypes'
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from './actionTypes'
+import { ADD_TODO, DELETE_TODO,TOGGLE_TODO, SET_FILTER } from './actionTypes'
 
 const initialTodoState = {
-    nextId: 2,
+    nextId: 3,
     data:
     {
         1: {
-            content: 'Content 1',
+            content: 'Gather Tax Documents',
+            completed: false
+        },
+        2: {
+            content: 'Apply For FSA ID',
             completed: false
         }
     }
@@ -30,6 +34,22 @@ export const todos = (state = initialTodoState, action) => {
                 }
             )
         }
+        case DELETE_TODO: {
+            return (
+                {
+                    ...state,
+                    data: {
+                        ...state.data,
+                        [state.nextId]: {
+                            completed: false,
+                            content: action.payload.content
+                        },
+                    },
+
+                    nextId: state.nextId -1
+                }
+            )
+        }
         case TOGGLE_TODO:{
             console.log(action.payload)
             return(
@@ -45,6 +65,7 @@ export const todos = (state = initialTodoState, action) => {
                 }
             )
         }
+    
 
         default: {
             return state
