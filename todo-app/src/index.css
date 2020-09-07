@@ -35,10 +35,9 @@ li {
   display: inline;
   display: block;
   padding: 8px;
-  float: left;
   font-size: large;
   color: blue;
-  background-color: whitesmoke;
+  display: inline;
  
 }
 .App {
@@ -49,6 +48,5 @@ li {
     padding: 35px;
     float: left;
     font-size: 30px;
-    style:none
 }
   
